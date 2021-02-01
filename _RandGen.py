@@ -19,7 +19,11 @@ class RandGen():
             self.randness = math.log(self.range,10) + 3
     
     def gen(self):
+<<<<<<< HEAD
         return (math.ceil(random() * (10 ** self.randness) * self.range + 1) % self.range) + self.floor
+=======
+        return (math.ceil(random() * ((10 ** self.randness) * self.range + 1) % self.range) + self.floor
+>>>>>>> 716a16af6dded0fc91f8dc4f9304b0d1c14cecba
 
 def _TestGen(floor,ceil,randness=3,tests=10**5):
     SmallToBig(floor,ceil)
@@ -31,6 +35,7 @@ def _TestGen(floor,ceil,randness=3,tests=10**5):
         lst[rg.gen()-floor]+=1
     return lst
 
+<<<<<<< HEAD
 def _TestGenNp(floor,ceil,tests=10**5):
     lst=[]
     for a in range(floor,ceil+1):
@@ -40,3 +45,5 @@ def _TestGenNp(floor,ceil,tests=10**5):
     return lst
 
 def _Suites()
+=======
+>>>>>>> 716a16af6dded0fc91f8dc4f9304b0d1c14cecba

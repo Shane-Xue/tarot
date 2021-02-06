@@ -1,6 +1,4 @@
-"""
-random number generator wrapper class
-"""
+"""random number generator wrapper class"""
 import math
 import numpy as np
 from random import random

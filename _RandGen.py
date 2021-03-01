@@ -1,4 +1,6 @@
-"""random number generator wrapper class"""
+"""
+random number generator wrapper class
+"""
 import math
 import numpy as np
 from random import random
@@ -17,7 +19,7 @@ class RandGen():
             self.randness = math.log(self.range,10) + 3
     
     def gen(self):
-        return (math.ceil(random() * (10 ** self.randness) * self.range + 1) % self.range) + self.floor)
+        return (math.ceil(random() * ((10 ** self.randness) * self.range + 1) % self.range) + self.floor)
 
 def _TestGen(floor,ceil,randness=3,tests=10**5):
     SmallToBig(floor,ceil)

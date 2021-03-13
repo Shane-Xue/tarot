@@ -2,9 +2,9 @@
 Tarot Card Class and The Card Deck-- with side
 There is also an exception class to indicate a corrupted directory system
 """
-from . import _RandGen
+import _RandGen
 
-class DirCorruptionError(Exception):
+class DirCorError(Exception):
     def __init__(self,str):
         super(str)
 
@@ -12,10 +12,10 @@ class Card():
     """
     A Class for putting in the cards
     """
-    def __init__(self,num,side):
+    def __init__(self,num,side=-1):
         """
         num: The representitive number in the deck of cards
-        side: 0--upright 1--reversed
+        side: 0--upright 1--reversed -1--undetermined
         """
         self.num=num
         self.side=side
@@ -36,19 +36,27 @@ class Card():
         file=open(f'def/{self.num}.txt','r')
         self.Definition=[]
         for line in file:
-            self.define.append(line)
+            self.Definition.append(line)
         file.close()
+
     def Def(self):
         """
         Method to give the user the definition aquired in _GetDef
         """
-        self._GetDef()
+        try:
+            self._GetDef()
+        except FileNotFoundError as e:
+            raise DirCorError("The definition directory is corrupted!")
         return self.Definition
+
     def __str__(self):
         """
         In case there is such a majic method!
         """
         return str(self.Definition)
+
+    def __call__(self):
+        return str(self)
 
 class _Deck():
     """
